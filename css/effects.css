@@ -1,0 +1,501 @@
+/* ============================================================
+   BUCIN — Effects Stylesheet
+   Glows, bloom, cinematic effects, animated gradients, noise
+   ============================================================ */
+
+/* ─── GLOBAL AMBIENT GRADIENTS ───────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 100% 70% at 20% 20%, rgba(110,60,200,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 80% 80%, rgba(180,70,120,0.035) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 10%, rgba(50,110,200,0.025) 0%, transparent 50%);
+  animation: ambientShift 14s ease-in-out infinite alternate;
+}
+
+@keyframes ambientShift {
+  0% {
+    background:
+      radial-gradient(ellipse 100% 70% at 20% 20%, rgba(110,60,200,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 80%, rgba(180,70,120,0.035) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 50% 10%, rgba(50,110,200,0.025) 0%, transparent 50%);
+  }
+  50% {
+    background:
+      radial-gradient(ellipse 90% 60% at 70% 30%, rgba(180,70,120,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 70% at 20% 80%, rgba(110,60,200,0.035) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 40% at 80% 20%, rgba(50,110,200,0.03) 0%, transparent 50%);
+  }
+  100% {
+    background:
+      radial-gradient(ellipse 110% 80% at 40% 60%, rgba(50,110,200,0.035) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(180,70,120,0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 60% at 20% 40%, rgba(110,60,200,0.04) 0%, transparent 50%);
+  }
+}
+
+/* ─── SECTION GRADIENT OVERLAYS ──────────────────────────── */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(110,60,200,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(180,70,120,0.045) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(110,60,200,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.gallery::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 50%, rgba(180,70,120,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 50%, rgba(110,60,200,0.035) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.love-letter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(160,60,110,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.finale::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% 60%, rgba(180,70,120,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(110,60,200,0.045) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ─── GLOW TEXT EFFECTS ───────────────────────────────────── */
+.glow-text {
+  text-shadow:
+    0 0 18px rgba(180,90,140,0.22),
+    0 0 45px rgba(160,70,120,0.12),
+    0 0 80px rgba(140,50,100,0.07);
+}
+
+.glow-text-violet {
+  text-shadow:
+    0 0 16px rgba(160,120,220,0.22),
+    0 0 45px rgba(110,60,200,0.12),
+    0 0 80px rgba(90,40,180,0.07);
+}
+
+.glow-text-white {
+  text-shadow:
+    0 0 20px rgba(200,190,220,0.12),
+    0 0 55px rgba(180,160,200,0.07);
+}
+
+/* ─── GLASS CARD VARIANTS ─────────────────────────────────── */
+.glass-card--pink {
+  background: rgba(255,110,180,0.06);
+  border-color: rgba(255,110,180,0.15);
+  box-shadow: 0 8px 60px rgba(255,110,180,0.1), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.glass-card--violet {
+  background: rgba(155,89,248,0.06);
+  border-color: rgba(155,89,248,0.15);
+  box-shadow: 0 8px 60px rgba(155,89,248,0.1), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.timeline__card {
+  box-shadow:
+    0 8px 60px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 0 40px rgba(155,89,248,0.05);
+}
+
+.timeline__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ─── ANIMATED GRADIENT BACKGROUNDS ──────────────────────── */
+.animated-gradient {
+  background: linear-gradient(135deg,
+    rgba(255,110,180,0.15),
+    rgba(155,89,248,0.15),
+    rgba(74,158,255,0.1),
+    rgba(255,110,180,0.15));
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── SECTION DIVIDERS ────────────────────────────────────── */
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--clr-pink), transparent);
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.section-divider::before {
+  content: '♡';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.5rem;
+  color: var(--clr-pink);
+  background: var(--clr-bg);
+  padding: 0 6px;
+}
+
+/* ─── SHIMMER EFFECT ──────────────────────────────────────── */
+@keyframes shimmer {
+  from { transform: translateX(-120%); }
+  to   { transform: translateX(120%); }
+}
+
+.shimmer-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,200,220,0.5), transparent);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+/* ─── FLOATING ORBS DECORATIVE ────────────────────────────── */
+.orb-decoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.orb-pink {
+  background: rgba(255,110,180,0.15);
+}
+
+.orb-violet {
+  background: rgba(155,89,248,0.12);
+}
+
+.orb-blue {
+  background: rgba(74,158,255,0.1);
+}
+
+/* ─── HERO SPECIFIC EFFECTS ───────────────────────────────── */
+.hero__headline .line:first-child {
+  text-shadow: var(--glow-text);
+}
+
+/* ─── TIMELINE GLOW LINE ──────────────────────────────────── */
+.timeline__glow-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 5px;
+  height: 30%;
+  background: linear-gradient(to bottom, var(--clr-pink), transparent);
+  filter: blur(4px);
+  animation: lineGlow 3s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% { top: 0; opacity: 1; }
+  50% { top: 70%; opacity: 0.5; }
+}
+
+/* ─── GALLERY CARD BLOOM ──────────────────────────────────── */
+.gallery__card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, rgba(255,110,180,0.15), transparent, rgba(155,89,248,0.1));
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.gallery__card:hover::after {
+  opacity: 1;
+}
+
+/* ─── LOVE LETTER PAPER EFFECT ────────────────────────────── */
+.love-letter__paper {
+  position: relative;
+  padding: clamp(40px, 6vw, 80px) clamp(32px, 5vw, 64px);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,200,220,0.08);
+  border-radius: 4px;
+  box-shadow:
+    0 20px 80px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 80px rgba(255,100,160,0.05);
+}
+
+.love-letter__paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,110,180,0.4), rgba(155,89,248,0.4), transparent);
+  border-radius: 4px 4px 0 0;
+}
+
+/* ─── FINALE GLOW EXPLOSION ───────────────────────────────── */
+.finale__bg-glow {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%,
+      rgba(255,110,180,0.15) 0%,
+      rgba(155,89,248,0.1) 30%,
+      transparent 65%);
+  pointer-events: none;
+  filter: blur(40px);
+  animation: finaleGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes finaleGlow {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1.0; transform: scale(1.08); }
+}
+
+/* ─── HEART PARTICLES ─────────────────────────────────────── */
+.heart-particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 50;
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* ─── PRELOADER DECORATIVE RINGS ──────────────────────────── */
+.preloader__rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader__ring-outer {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid rgba(155,89,248,0.08);
+  animation: ringRotate 12s linear infinite reverse;
+}
+
+.preloader__ring-outer::before {
+  content: '♡';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  color: rgba(255,110,180,0.3);
+}
+
+.preloader__ring-mid {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,110,180,0.08);
+  animation: ringRotate 8s linear infinite;
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── NAV GLOW ────────────────────────────────────────────── */
+.nav--scrolled::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255,110,180,0.2),
+    rgba(155,89,248,0.2),
+    transparent);
+}
+
+/* ─── HOVER LINK UNDERLINE ────────────────────────────────── */
+.hover-line {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-line::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--clr-pink), var(--clr-violet));
+  transition: width 0.4s var(--easing-silk);
+}
+
+.hover-line:hover::after { width: 100%; }
+
+/* ─── SCROLL-TRIGGERED LINE ANIMATION ────────────────────── */
+.line-draw {
+  height: 1px;
+  background: linear-gradient(90deg, var(--clr-pink), var(--clr-violet));
+  transform: scaleX(0);
+  transform-origin: left;
+  box-shadow: 0 0 8px var(--clr-pink);
+}
+
+/* ─── GLOW PULSE ANIMATION ────────────────────────────────── */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255,110,180,0.2), 0 0 40px rgba(155,89,248,0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255,110,180,0.4), 0 0 80px rgba(155,89,248,0.2);
+  }
+}
+
+.pulse-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ─── SECTION NUMBER DECORATIVE ───────────────────────────── */
+.section-number {
+  position: absolute;
+  top: var(--section-pad);
+  right: clamp(20px, 4vw, 60px);
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 8vw, 10rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.02);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ─── BLEND MODE ACCENTS ──────────────────────────────────── */
+.blend-screen {
+  mix-blend-mode: screen;
+}
+
+.blend-overlay {
+  mix-blend-mode: overlay;
+}
+
+/* ─── BACKGROUND NOISE TEXTURE ────────────────────────────── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 250px;
+  pointer-events: none;
+}
+
+/* ─── QUALITY ADAPTIVE RULES ──────────────────────────────── */
+[data-quality="1"] .grain-overlay,
+[data-quality="1"] .noise-overlay {
+  display: none;
+}
+
+[data-quality="1"] body::before {
+  animation: none;
+}
+
+[data-quality="2"] .grain-overlay {
+  animation: none;
+}
+
+
+/* ─── GALAXY CANVAS ───────────────────────────────────────── */
+#galaxy-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+/* Ensure three-canvas sits on top of galaxy for its additive particles */
+#three-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#particle-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Grain/noise overlays sit above canvases */
+.grain-overlay,
+.noise-overlay {
+  z-index: 4;
+}
+
